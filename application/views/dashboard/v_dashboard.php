@@ -84,6 +84,14 @@
                     iconUrl: './assets/gardu_assets/icon/pt.png',
                 });
 
+                var up3icon = L.icon({
+                    iconUrl: './assets/gardu_assets/icon/up3.png',
+                });
+
+                var ulpicon = L.icon({
+                    iconUrl: './assets/gardu_assets/icon/ulp.png',
+                });
+
                 // Map
                 // var map = L.map('map');
                 // Create a new map with a fullscreen button:
@@ -263,7 +271,9 @@
 
                 up3 = L.layerGroup();
                 <?php foreach ($up3 as $f) { ?>
-                L.marker([<?= $f->lat_up3 ?>, <?= $f->long_up3 ?>]).bindPopup(
+                L.marker([<?= $f->lat_up3 ?>, <?= $f->long_up3 ?>], {
+                        icon: up3icon
+                    }).bindPopup(
                         "<h5><?= $f->up3 ?> </h5>")
                     .addTo(
                         map);
@@ -271,7 +281,9 @@
 
                 ulp = L.layerGroup();
                 <?php foreach ($ulp as $f) { ?>
-                L.marker([<?= $f->lat_ulp ?>, <?= $f->long_ulp ?>]).bindPopup(
+                L.marker([<?= $f->lat_ulp ?>, <?= $f->long_ulp ?>], {
+                        icon: ulpicon
+                    }).bindPopup(
                         "<h5><?= $f->nm_ulp ?> </h5>")
                     .addTo(
                         map);
